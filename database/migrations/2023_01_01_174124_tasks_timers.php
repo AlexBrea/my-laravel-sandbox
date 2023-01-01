@@ -15,17 +15,23 @@ return new class extends Migration
     {
         Schema::create('tasks_timers', function (Blueprint $table) {
             $table->id();
+            $table->boolean( 'is_active' )
+                ->default( 1 );
             $table->bigInteger( 'task_id' )
                 ->unsigned();
             $table->bigInteger( 'total_time' )
                 ->nullable();
-            $table->timestamp( 'task_start' );
-            $table->timestamp( 'task_end' );
+            $table->timestamp( 'task_start' )
+                ->nullable();
+            $table->timestamp( 'task_end' )
+                ->nullable();
             $table->foreign( 'task_id' )
                 ->references( 'id' )
                 ->on( 'tasks' )
                 ->onDelete( 'cascade' )
                 ->onUpdate( 'cascade' );
+            $table->timestamps();
+            
         });
     }
 
