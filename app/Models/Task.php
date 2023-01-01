@@ -38,4 +38,8 @@ class Task extends Model
     {
         return $this->hasMany( TaskTimer::class );
     }
+
+    public function getIdFromAction() {
+        return  $this->toArray()['id'];
+    }
 }

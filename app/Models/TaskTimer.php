@@ -10,6 +10,8 @@ class TaskTimer extends Model
 {
     use HasFactory;
 
+    protected $table = 'tasks_timers';
+
     /**
      * The attributes that are mass assignable.
      *
